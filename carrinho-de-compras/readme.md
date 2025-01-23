@@ -6,5 +6,5 @@
 
 #### Entidades:
 
-- carinho
-- itens
+- carrinho -> cart.js
+- itens -> item.js
