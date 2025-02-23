@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import prompt from 'prompt';
 import mainPrompot from './prompts/prompt-main.js';
 import chalk from 'chalk';
