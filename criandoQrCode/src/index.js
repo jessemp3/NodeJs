@@ -6,11 +6,27 @@ import createQrcode from '../services/qr-code/create.js';
 import createPassword from './password/create.js';
 
 async function main() {
-    prompt.get(mainPrompot, async (err, choose) => {
-        if (choose.select == 1) {await createQrcode();}
-        if (choose.select == 2) {await createPassword();}
-    });
+    // Inicia o prompt antes de fazer a pergunta
     prompt.start();
+    
+    return new Promise((resolve, reject) => {
+        prompt.get(mainPrompot, async (err, choose) => {
+            if (err) reject(err);
+            
+            if (choose.select == 1) {
+                const qr = await createQrcode();
+                resolve(qr);
+            }
+            if (choose.select == 2) {
+                const pwd = await createPassword();
+                resolve(pwd);
+            }
+        });
+    });
 }
 
-main()
+export { main };
+
+if (import.meta.url === process.argv[1]) {
+    main().catch(console.error);
+}

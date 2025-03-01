@@ -16,11 +16,21 @@ Uma ferramenta CLI simples para gerar QR Codes e senhas seguras.
 
 ## 📦 Instalação
 
-1. Clone o repositório
-2. Instale as dependências:
-
 ```bash
 npm i qrcode-password-generator
+```
+
+## 💻 Como Usar
+
+```javascript
+import { main } from 'qrcode-password-generator';
+
+async function exemplo() {
+    const resultado = await main();
+    console.log(resultado);
+}
+
+exemplo();
 ```
 
 ## ⚙️ Configurações da Senha
@@ -29,7 +39,7 @@ As configurações para geração de senha podem ser personalizadas no arquivo `
 
 ```env
 # Configurações para geração de senha
-UPPERCASE_LETTERS=false    # Incluir letras maiúsculas
+UPPERCASE_LETTERS=true    # Incluir letras maiúsculas
 LOWERCASE_LETTERS=true    # Incluir letras minúsculas
 NUMBERS=true             # Incluir números
 SPECIAL_CHARS=true       # Incluir caracteres especiais
